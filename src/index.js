@@ -18,6 +18,10 @@ const countryList = document.querySelector('.country-list');
 const countryItem = document.querySelector('.country-info');
 const inputNode = document.querySelector('input');
 const inputData = () => {
+  //   console.log(inputNode.textContent);
+  if ((inputNode.textContent = '')) {
+    return;
+  }
   fetchCountries(inputNode.value.trim())
     .then(array => {
       //   console.log(array);
@@ -50,7 +54,8 @@ const inputData = () => {
                     <li> имя страны: ${item.name}</li>
                     <li> столица: ${item.capital}</li>
                     <li> население: ${item.population}</li>
-                    <li> языки: ${item.languages[0].name}</li>
+                   
+                     <li> языки: ${item.languages.map(item => item.name)}</li>
                 </ul>
           `,
           )
@@ -62,8 +67,7 @@ const inputData = () => {
       }
     })
     .catch(error => {
-      //   console.log('falseeee');
-      return Notiflix.Notify.failure('Oops, there is no country with that name');
+      console.log('falseeee');
     });
 };
 

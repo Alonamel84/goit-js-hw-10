@@ -19,7 +19,7 @@ const countryItem = document.querySelector('.country-info');
 const inputNode = document.querySelector('input');
 const inputData = () => {
   //   console.log(inputNode.textContent);
-  if ((inputNode.textContent = '')) {
+  if (inputNode.value.trim() === '') {
     return;
   }
   fetchCountries(inputNode.value.trim())
